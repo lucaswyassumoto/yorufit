@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: fit
+  datasource:
+    url: jdbc:postgresql://localhost:5432/yorufit
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernation:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8089
+
