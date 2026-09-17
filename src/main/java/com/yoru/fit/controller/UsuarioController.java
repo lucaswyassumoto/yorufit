@@ -23,7 +23,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/editar-usuario")
-    public Usuario editar(@RequestBody UsuarioResumoDTO dto, Long usuarioId){
+    public Usuario editar(@RequestBody UsuarioResumoDTO dto, @RequestParam Long usuarioId){
         return usuarioService.editarUsuario(dto, usuarioId);
     }
 
