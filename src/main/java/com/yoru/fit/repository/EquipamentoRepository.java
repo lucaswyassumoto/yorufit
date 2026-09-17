@@ -11,4 +11,8 @@ public interface EquipamentoRepository extends JpaRepository<Equipamento, Long> 
 
     Optional<Equipamento> findByNome(String nome);
 
+    boolean existsByNome(String nome);
+
+    boolean existsByNomeAndIdNot(String nome, Long equipamentoId);
+
 }
