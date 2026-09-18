@@ -11,4 +11,8 @@ public interface ExercicioRepository extends JpaRepository<Exercicio, Long> {
 
     Optional<Exercicio> findByNome(String nome);
 
+    boolean existsByNome(String nome);
+
+    boolean existsByNomeAndIdNot(String nome, Long exercicioId);
+
 }
