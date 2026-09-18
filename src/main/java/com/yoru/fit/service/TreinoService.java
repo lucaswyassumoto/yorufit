@@ -50,9 +50,9 @@ public class TreinoService {
 
     }
 
-    public Treino editarTreino(Treino treino, Long usuarioId){
+    public Treino editarTreino(Treino treino, Long treinoId, Long usuarioId){
 
-        Treino treinoBanco = treinoRepository.findById(treino.getId()).orElseThrow(() ->
+        Treino treinoBanco = treinoRepository.findById(treinoId).orElseThrow(() ->
                 new IllegalArgumentException("Treino não encontrado"));
 
         if(!treinoBanco.getUsuario().getId().equals(usuarioId)){

@@ -5,7 +5,7 @@ import com.yoru.fit.service.TreinoExercicioService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/treinos/exercicios")
+@RequestMapping("/treino-exercicio")
 public class TreinoExercicioController {
 
     private final TreinoExercicioService treinoExercicioService;
@@ -14,18 +14,18 @@ public class TreinoExercicioController {
         this.treinoExercicioService = treinoExercicioService;
     }
 
-    @PostMapping("/criar")
+    @PostMapping
     public TreinoExercicio criar(@RequestBody TreinoExercicio treinoExercicio, @RequestParam Long usuarioId){
         return treinoExercicioService.criarTreinoExercicio(treinoExercicio, usuarioId);
     }
 
-    @PutMapping("/editar")
-    public TreinoExercicio editar(@RequestBody TreinoExercicio treinoExercicio, @RequestParam Long usuarioId){
-        return treinoExercicioService.editarTreinoExercicio(treinoExercicio, usuarioId);
+    @PutMapping("/{treinoExercicioId}")
+    public TreinoExercicio editar(@RequestBody TreinoExercicio treinoExercicio, @PathVariable Long treinoExercicioId, @RequestParam Long usuarioId){
+        return treinoExercicioService.editarTreinoExercicio(treinoExercicio, treinoExercicioId, usuarioId);
     }
 
-    @DeleteMapping("/deletar")
-    public void deletar(@RequestParam Long treinoExercicioId, @RequestParam Long usuarioId){
+    @DeleteMapping("/{treinoExercicioId}")
+    public void deletar(@PathVariable Long treinoExercicioId, @RequestParam Long usuarioId){
         treinoExercicioService.excluirTreinoExercicio(treinoExercicioId, usuarioId);
     }
 

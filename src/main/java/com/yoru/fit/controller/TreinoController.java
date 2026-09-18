@@ -14,19 +14,19 @@ public class TreinoController {
         this.treinoService = treinoService;
     }
 
-    @GetMapping("/buscar-treinos")
-    public Treino buscar(@RequestParam Long treinoId){
+    @GetMapping("/{treinoId}")
+    public Treino buscar(@PathVariable Long treinoId){
         return treinoService.buscarTreino(treinoId);
     }
 
-    @PostMapping("/criar-treino")
+    @PostMapping
     public Treino criar(@RequestBody Treino treino, @RequestParam Long usuarioId){
         return treinoService.criarTreino(treino, usuarioId);
     }
 
-    @PutMapping("/editar-treino")
-    public Treino editar(@RequestBody Treino treino, @RequestParam Long usuarioId){
-        return treinoService.editarTreino(treino, usuarioId);
+    @PutMapping("/{treinoId}")
+    public Treino editar(@RequestBody Treino treino, @PathVariable Long treinoId, @RequestParam Long usuarioId){
+        return treinoService.editarTreino(treino, treinoId, usuarioId);
     }
 
 }

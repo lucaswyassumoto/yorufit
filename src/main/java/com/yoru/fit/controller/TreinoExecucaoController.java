@@ -5,7 +5,7 @@ import com.yoru.fit.service.TreinoExecucaoService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/execucao")
+@RequestMapping("/treino-execucao")
 public class TreinoExecucaoController {
 
     private final TreinoExecucaoService treinoExecucaoService;
@@ -14,13 +14,13 @@ public class TreinoExecucaoController {
         this.treinoExecucaoService = treinoExecucaoService;
     }
 
-    @PostMapping("/iniciar-execucao")
+    @PostMapping
     public TreinoExecucao iniciar(@RequestParam Long treinoId, @RequestParam Long usuarioId){
         return treinoExecucaoService.iniciarExecucao(treinoId, usuarioId);
     }
 
-    @PutMapping("/finalizar-execucao")
-    public TreinoExecucao finalizar(@RequestParam Long treinoExecucaoId, @RequestParam Long usuarioId){
+    @PutMapping("/{treinoExecucaoId}")
+    public TreinoExecucao finalizar(@PathVariable Long treinoExecucaoId, @RequestParam Long usuarioId){
         return treinoExecucaoService.finalizarExecucao(treinoExecucaoId, usuarioId);
     }
 

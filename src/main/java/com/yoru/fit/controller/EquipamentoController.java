@@ -16,22 +16,22 @@ public class EquipamentoController {
         this.equipamentoService = equipamentoService;
     }
 
-    @PostMapping("/criar-equipamento")
+    @PostMapping
     public Equipamento adicionar(@RequestBody Equipamento equipamento){
         return equipamentoService.addEquipamento(equipamento);
     }
 
-    @PutMapping("/editar-equipamento")
-    public Equipamento editar(@RequestBody Equipamento equipamento, @RequestParam Long equipamentoId){
+    @PutMapping("/{equipamentoId}")
+    public Equipamento editar(@RequestBody Equipamento equipamento, @PathVariable Long equipamentoId){
         return equipamentoService.editarEquipamento(equipamento, equipamentoId);
     }
 
-    @DeleteMapping("/deletar-equipamento")
-    public void deletar(@RequestParam Long equipamentoId){
+    @DeleteMapping("/{equipamentoId}")
+    public void deletar(@PathVariable Long equipamentoId){
         equipamentoService.deletarEquipamento(equipamentoId);
     }
 
-    @GetMapping("/listar-equipamentos")
+    @GetMapping
     public List<Equipamento> listar(){
         return equipamentoService.listarEquipamentos();
     }

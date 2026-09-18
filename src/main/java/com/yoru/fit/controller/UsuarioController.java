@@ -17,20 +17,19 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping("/cadastrar")
+    @PostMapping
     public Usuario criar(@RequestBody Usuario usuario){
         return usuarioService.criarUsuario(usuario);
     }
 
-    @PutMapping("/editar-usuario")
-    public Usuario editar(@RequestBody UsuarioResumoDTO dto, @RequestParam Long usuarioId){
+    @PutMapping("/{usuarioId}")
+    public Usuario editar(@RequestBody UsuarioResumoDTO dto, @PathVariable Long usuarioId){
         return usuarioService.editarUsuario(dto, usuarioId);
     }
 
-    @GetMapping("/buscar-usuarios")
+    @GetMapping
     public List<Usuario> listar(){
         return usuarioService.listarTodos();
     }
-
 
 }

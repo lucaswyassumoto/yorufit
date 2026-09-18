@@ -14,7 +14,7 @@ public class ExecucaoSerieController {
         this.execucaoSerieService = execucaoSerieService;
     }
 
-    @PostMapping("/registrar-serie")
+    @PostMapping
     public ExecucaoSerie registrar(@RequestBody ExecucaoSerie execucaoSerie, @RequestParam Long execucaoExercicioId, @RequestParam Long usuarioId){
         return execucaoSerieService.registrarSerie(execucaoSerie, execucaoExercicioId, usuarioId);
     }

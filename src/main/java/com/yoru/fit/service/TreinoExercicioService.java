@@ -69,9 +69,9 @@ public class TreinoExercicioService {
 
     }
 
-    public TreinoExercicio editarTreinoExercicio(TreinoExercicio treinoExercicio, Long usuarioId){
+    public TreinoExercicio editarTreinoExercicio(TreinoExercicio treinoExercicio, Long treinoExercicioId, Long usuarioId){
 
-        TreinoExercicio treinoExercicioBanco = treinoExercicioRepository.findById(treinoExercicio.getId()).orElseThrow(() ->
+        TreinoExercicio treinoExercicioBanco = treinoExercicioRepository.findById(treinoExercicioId).orElseThrow(() ->
                 new IllegalArgumentException("Treino de exercícios não encontrado"));
 
         if(!treinoExercicioBanco.getTreino().getUsuario().getId().equals(usuarioId)){

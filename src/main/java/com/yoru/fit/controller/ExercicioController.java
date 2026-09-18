@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/exercicio")
+@RequestMapping("/exercicios")
 public class ExercicioController {
 
     private final ExercicioService exercicioService;
@@ -16,22 +16,22 @@ public class ExercicioController {
         this.exercicioService = exercicioService;
     }
 
-    @PostMapping("/criar")
+    @PostMapping
     public Exercicio criar(@RequestBody Exercicio exercicio){
         return exercicioService.criarExercicio(exercicio);
     }
 
-    @PutMapping("/editar")
-    public Exercicio editar(@RequestBody Exercicio exercicio, @RequestParam Long exercicioId){
+    @PutMapping("/{exercicioId}")
+    public Exercicio editar(@RequestBody Exercicio exercicio, @PathVariable Long exercicioId){
         return exercicioService.editarExercicio(exercicio, exercicioId);
     }
 
-    @DeleteMapping("/deletar")
-    public void deletar(@RequestParam Long exercicioId){
+    @DeleteMapping("/{exercicioId}")
+    public void deletar(@PathVariable Long exercicioId){
         exercicioService.deletarExercicio(exercicioId);
     }
 
-    @GetMapping("/listar")
+    @GetMapping
     public List<Exercicio> listar(){
         return exercicioService.listarTodos();
     }

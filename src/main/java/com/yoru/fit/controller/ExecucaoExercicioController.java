@@ -17,7 +17,7 @@ public class ExecucaoExercicioController {
         this.execucaoExercicioService = execucaoExercicioService;
     }
 
-    @PostMapping("/iniciar-execucao-exercicio")
+    @PostMapping
     public ExecucaoExercicio iniciar(@RequestParam Long treinoExecucaoId, @RequestParam Long treinoExercicioId, @RequestParam Long usuarioId){
         return execucaoExercicioService.iniciarExecucaoExercicio(treinoExecucaoId, treinoExercicioId, usuarioId);
     }
