@@ -11,4 +11,8 @@ public interface RegiaoCorporalRepository extends JpaRepository<RegiaoCorporal, 
 
     Optional<RegiaoCorporal> findByNome(String nome);
 
+    boolean existsByNome(String nome);
+
+    boolean existsByNomeAndIdNot(String nome, Long regiaoCorporalId);
+
 }
