@@ -13,6 +13,6 @@ public interface MusculoRepository extends JpaRepository<Musculo, Long> {
 
     boolean existsByNome(String nome);
 
-    boolean existsByNomeAndNotId(String nome, Long musculoId);
+    boolean existsByNomeAndIdNot(String nome, Long musculoId);
 
 }

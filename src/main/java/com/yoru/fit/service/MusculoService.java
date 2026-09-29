@@ -63,7 +63,7 @@ public class MusculoService {
 
             String nome = musculo.getNome().trim();
 
-            if(musculoRepository.existsByNomeAndNotId(nome, musculoId)){
+            if(musculoRepository.existsByNomeAndIdNot(nome, musculoId)){
                 throw new IllegalArgumentException("Esse nome já pertence a um músculo");
             }
 

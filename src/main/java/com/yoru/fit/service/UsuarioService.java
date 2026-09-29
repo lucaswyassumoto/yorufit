@@ -64,8 +64,10 @@ public class UsuarioService {
             throw new IllegalArgumentException("A data de nascimento não pode ser maior que a data atual");
         }
 
-        if(usuario.getFotoPerfil().isBlank() || usuario.getFotoPerfil() == null){
-            usuario.setFotoPerfil("/");
+        if(usuario.getFotoPerfil() != null && !usuario.getFotoPerfil().isBlank()){
+            usuario.setFotoPerfil(
+                    usuario.getFotoPerfil().trim()
+            );
         }
 
         usuario.setDtCriacao(LocalDateTime.now());

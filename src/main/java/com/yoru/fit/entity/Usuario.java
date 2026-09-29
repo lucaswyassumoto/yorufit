@@ -28,7 +28,7 @@ public class Usuario {
     @Column(name = "dt_nascimento", nullable = false)
     private LocalDate dtNascimento;
 
-    @Column(name = "foto_perfil", columnDefinition = "TEXT")
+    @Column(name = "foto_url", columnDefinition = "TEXT")
     private String fotoPerfil;
 
     @Column(name = "dt_criacao")
