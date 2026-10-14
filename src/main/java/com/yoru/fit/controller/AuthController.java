@@ -30,6 +30,10 @@ public class AuthController {
 
         Authentication authentication = authenticationManager.authenticate(token);
 
+        System.out.println(authentication.getName());
+        System.out.println(authentication.getPrincipal());
+        System.out.println(authentication.isAuthenticated());
+
     }
 
 
